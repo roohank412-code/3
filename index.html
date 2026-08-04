@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="National Testing Agency- National Medical Commission" />
+  <title>National Testing Agency | National Medical commission</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <img src="assets/logo.png" alt="Exam Result Portal Logo" class="logo" />
+      <div class="header-text">
+        <h1>National Testing Agency</h1>
+        <p class="subtitle">National Medical Commission</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <div class="card fade-in">
+      <div class="card-header">
+        <span class="lock-icon">🔒</span>
+        <h2>View Result</h2>
+      </div>
+
+      <p class="card-desc">Complete the CAPTCHA below to view your result.</p>
+
+      <!-- CAPTCHA Section -->
+      <div class="captcha-section">
+        <label for="captchaInput" class="captcha-label">
+          Enter CAPTCHA <span class="case-note">(case sensitive)</span>:
+        </label>
+
+        <input
+          type="text"
+          id="captchaInput"
+          class="captcha-input"
+          placeholder="Enter the code shown"
+          autocomplete="off"
+          maxlength="6"
+          spellcheck="false"
+        />
+
+        <div class="captcha-display">
+          <span class="captcha-label-small">CAPTCHA:</span>
+          <div class="captcha-box">
+            <canvas id="captchaCanvas" width="160" height="50"></canvas>
+            <button type="button" id="refreshCaptcha" class="refresh-btn" title="Refresh CAPTCHA" aria-label="Refresh CAPTCHA">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <p id="errorMsg" class="error-msg hidden" role="alert"></p>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="button" id="submitBtn" class="submit-btn">
+        <span class="btn-text">SUBMIT</span>
+        <span class="btn-spinner hidden"></span>
+      </button>
+    </div>
+  </main>
+
+  <!-- Loading Overlay (shown after successful CAPTCHA) -->
+  <div id="loadingOverlay" class="loading-overlay hidden">
+    <div class="loading-content">
+      <div class="spinner-large"></div>
+      <p>Verifying &amp; loading your result...</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© National Testing Agency</p>
+  </footer>
+
+  <script src="captcha.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
